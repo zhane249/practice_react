@@ -1,0 +1,17 @@
+# Git Ignore Files
+
+# A .gitignore file (with that filename) tells git/GitHub which files
+# and folders to not back up. Sometimes you have files in your local
+# repository that you don't want uploaded to GitHub, because they are
+# temporary, or secret, or specific to your personal computer.
+
+# (These lines with the hash (#) at the beginning are comments.)
+
+# For our project, we just need two things in our .gitignore:
+
+# This is the folder of packages downloaded by npm (node package manager)
+node_modules/
+
+# This is the generated version of our site automatically built by our
+# build tool (Vite)
+dist/

@@ -20,5 +20,10 @@ function Diary() {
             about { topics.length } things: { topics.join(", ") }. This is
             good, because computers make me feel { vibe }.
         </p>
+
+<model-viewer src="/brownegg.glb" camera-controls touch-action="pan-y"
+></model-viewer>
+
+
     </>;
 }

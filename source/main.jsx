@@ -2,7 +2,14 @@ import { createRoot } from "react-dom/client";
 
 let root = createRoot(document.getElementById("diary"));
 
-root.render(<Diary />);
+root.render(<Diary />)
+//add more groceries with name and src
+let groceries = [{
+    name:"egg", src:"/brownegg.glb"
+}, {
+    name:"greenonion", src:"/greenonion.glb"
+}]
+
 
 function Diary() {
   // We can do any coding in here...
@@ -26,21 +33,23 @@ function Diary() {
         about {topics.length} things: {topics.join(", ")}. This is good, because
         computers make me feel {vibe}.
       </p>
-<div className="groceries">
-    <div className="egg">
+<div className="groceries">{
+    groceries.map(
+        grocery => <div className={
+            grocery.name
+        }>
       <model-viewer
-        src="/brownegg.glb"
+        src={
+            grocery.src
+        }
         camera-controls
         touch-action="pan-y"
       ></model-viewer>
 </div>
-<div className="greenonion">
-      <model-viewer
-        src="/greenonion.glb"
-        camera-controls
-        touch-action="pan-y"
-      ></model-viewer>
-      </div>
+    )
+    }
+    
+
       </div>
     </>
   );

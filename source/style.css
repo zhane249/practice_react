@@ -2,4 +2,9 @@
     display: grid;
     background-color: brown;
     grid-template-columns: repeat(2, 1fr);
+    justify-items: center;
+}
+.groceries model-viewer{
+    background-image: ;
+    width: 200px;
 }

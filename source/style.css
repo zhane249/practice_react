@@ -1,0 +1,5 @@
+.groceries{
+    display: grid;
+    background-color: brown;
+    grid-template-columns: repeat(2, 1fr);
+}

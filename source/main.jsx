@@ -8,6 +8,8 @@ let groceries = [{
     name:"egg", src:"/brownegg.glb"
 }, {
     name:"greenonion", src:"/greenonion.glb"
+},
+{name:"tomato", src:"/tomato.glb"
 }]
 
 

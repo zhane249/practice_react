@@ -12,15 +12,15 @@ import potatoURL from '../public/potato.glb?url'
 root.render(<Diary />)
 //add more groceries with name and src
 let groceries = [{
-    name:"egg", src:"/brownegg.glb"
+    name:"egg", src: eggURL
 }, {
-    name:"greenonion", src:"/greenonion.glb"
+    name:"greenonion", src: onionURL
 },
-{name:"tomato", src:"/tomato.glb"
+{name:"tomato", src: tomatoURL
 },
-{name:"tofu", src:"/tofu.glb"
+{name:"tofu", src: tofuURL
 },
-{name:"potato", src:"/potato.glb"
+{name:"potato", src: potatoURL
 }
 
 ]

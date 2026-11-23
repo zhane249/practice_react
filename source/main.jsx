@@ -10,7 +10,13 @@ let groceries = [{
     name:"greenonion", src:"/greenonion.glb"
 },
 {name:"tomato", src:"/tomato.glb"
-}]
+},
+{name:"tofu", src:"/tofu.glb"
+},
+{name:"potato", src:"/potato.glb"
+}
+
+]
 
 
 function Diary() {

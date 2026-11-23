@@ -2,6 +2,13 @@ import { createRoot } from "react-dom/client";
 
 let root = createRoot(document.getElementById("diary"));
 
+import eggURL from '../public/brownegg.glb?url'
+import onionURL from '../public/greenonion.glb?url'
+import tomatoURL from '../public/tomato.glb?url'
+import tofuURL from '../public/tofu.glb?url'
+import potatoURL from '../public/potato.glb?url'
+
+
 root.render(<Diary />)
 //add more groceries with name and src
 let groceries = [{

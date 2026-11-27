@@ -7,7 +7,7 @@ import onionURL from '../public/greenonion.glb?url'
 import tomatoURL from '../public/tomato.glb?url'
 import tofuURL from '../public/tofu.glb?url'
 import potatoURL from '../public/potato.glb?url'
-
+import hamURL from '../public/ham.glb?url'
 
 root.render(<Diary />)
 //add more groceries with name and src
@@ -21,6 +21,8 @@ let groceries = [{
 {name:"tofu", src: tofuURL
 },
 {name:"potato", src: potatoURL
+},
+{name:"ham", src: hamURL
 }
 
 ]

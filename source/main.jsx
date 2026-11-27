@@ -70,7 +70,8 @@ function Diary() {
     }
     return(
       <>
-<div className="groceries">{
+<div className="groceries">
+  <div className="groceries-grid">{
     groceries.map(
         grocery => <div className={
             grocery.name
@@ -85,6 +86,7 @@ function Diary() {
 </div>
     )
     }
+    </div>
     </div>
     </>
     );

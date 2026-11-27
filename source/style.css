@@ -1,9 +1,56 @@
 .groceries{
     display: grid;
-    background-color: brown;
+    background-image: url("../images/inside_fridge.png");
+    background-size: 100% 100%;
+    background-position: center;
+    background-repeat: no-repeat;
     grid-template-columns: repeat(2, 1fr);
+    grid-template-rows: repeat (4,1fr);
+    align-items: center;
     justify-items: center;
+    
+    height: 100vh;
+    aspect-ratio: 423/552;
+    margin: auto;
+
+    /* placement paddings for grocery assets in fridge */
+
 }
 .groceries model-viewer{
     width: 200px;
+    height: 150px;
+}
+
+body{
+    margin:0;
+    height: 100vh;
+    background-image: url("../images/fridge_layout.jpg");
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+}
+.loading{
+    width: 100vw;
+    height: 100vh;
+    object-fit: cover;
+    object-position: center;
+    display: block;
+}
+
+.groceries > div{
+    width: 100%;
+    height: 100%;
+    min-height: 0;
+    min-width: 0;
+}
+.groceries model-viewer{
+    width: 100%;
+    height: 100%;
+}
+.insideFridge{
+    height: 100vh;
+    aspect-ratio: 423/552;
+    object-fit: fill;
+    display: block;
+    margin: auto;
 }

@@ -1,4 +1,9 @@
 import { createRoot } from "react-dom/client";
+import { useState, useEffect} from "react";
+import logo from "../images/judgy_logo.png";
+import closeupFridge from "../images/closeup_fridge.png";
+import insideFridge from "../images/inside_fridge.png"
+let loadingImages = [logo, closeupFridge, insideFridge];
 
 let root = createRoot(document.getElementById("diary"));
 
@@ -35,27 +40,28 @@ let groceries = [{
 
 
 function Diary() {
-  // We can do any coding in here...
-  let lunch = "slice of pizza";
-
-  let topics = [
-    "JavaScript expressions",
-    "JSX",
-    "React state",
-    "React components",
-  ];
-
-  let vibe = "tired";
-
-  return (
-    <>
-      <h1>My Diary for October 14</h1>
-      <p>
-        Today is October {new Date().getDate()}. For lunch, I had a {lunch}.
-        After finishing my {lunch}, I walked to school. Today, we're talking
-        about {topics.length} things: {topics.join(", ")}. This is good, because
-        computers make me feel {vibe}.
-      </p>
+  let [scene, setScene] = useState(0);
+  //screen timer
+  useEffect(()=> {
+   
+      setTimeout(()=> setScene(1), 2000);
+      setTimeout(()=> setScene(2), 4000);
+      setTimeout(()=> setScene(3),6000);
+    },[]);
+    //logo
+    if (scene ==0){
+      return <img className="loading" src={logo} alt="Judgy apple looking at you" />
+    }
+    //closeup fridge pic
+    if (scene ==1){
+      return <img className ="loading" src={closeupFridge} alt="closeup of orange fridge"/>
+    }
+    //inside fridge
+    if (scene==2){
+      return <img className ="loading" src={insideFridge} alt="inside the fridge layout drawing"/>
+    }
+    return(
+      <>
 <div className="groceries">{
     groceries.map(
         grocery => <div className={
@@ -71,9 +77,14 @@ function Diary() {
 </div>
     )
     }
-    
-
-      </div>
+    </div>
     </>
-  );
-}
+    );
+  }
+
+
+
+
+
+
+

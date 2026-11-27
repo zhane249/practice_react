@@ -8,6 +8,8 @@ import tomatoURL from '../public/tomato.glb?url'
 import tofuURL from '../public/tofu.glb?url'
 import potatoURL from '../public/potato.glb?url'
 import hamURL from '../public/ham.glb?url'
+import shrimpURL from '../public/shrimp.glb?url'
+import mushroomURL from '../public/mushroom.glb?url'
 
 root.render(<Diary />)
 //add more groceries with name and src
@@ -23,6 +25,10 @@ let groceries = [{
 {name:"potato", src: potatoURL
 },
 {name:"ham", src: hamURL
+},
+{name:"shrimp", src: shrimpURL
+},
+{name:"mushroom", src: mushroomURL
 }
 
 ]

@@ -42,10 +42,7 @@ grid-template-rows: repeat(4, minmax(0,1fr));
     min-width: 0;
     /* outline: 1px dashed red; */
 }
-.groceries model-viewer{
-    width: 100%;
-    height: 100%;
-}
+
 .insideFridge{
     height: 100vh;
     aspect-ratio: 423/552;
@@ -61,14 +58,16 @@ grid-template-rows: repeat(4, minmax(0,1fr));
 .groceries-grid >div:active{
     cursor: grabbing;
 }
-.groceries-grid model-viewer{
+.groceries-grid model-viewer,.board-ingredient model-viewer{
     pointer-events: none;
+    width: 100%;
+    height: 100%;
 }
 
 .cutting-board{
     position: absolute;
     bottom: 5%;
-    right: 3%;
+    left: 3%;
     width: 30vw;
     height: 75vh;
     background-image: url("../images/board.png");
@@ -83,8 +82,4 @@ grid-template-rows: repeat(4, minmax(0,1fr));
 .board-ingredient{
     min-width: 0;
     min-height: 0;
-}
-.board-ingredient model-viewer{
-    width: 100%;
-    height: 100%;
 }

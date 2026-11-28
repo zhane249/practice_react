@@ -46,6 +46,7 @@ let groceries = [{
 function Diary() {
   let [scene, setScene] = useState(0);
   let [ingredients, setIngredients] = useState([]);
+  let [hovered, setHovered] = useState(null);
   //screen timer
   useEffect(()=> {
    
@@ -70,8 +71,9 @@ function Diary() {
     if (scene==3){
       return <img className ="insideFridge" src={insideFridge} alt="inside the fridge layout drawing"/>
     }
-function dragIngredeint(event, grocery){
+function dragIngredient(event, grocery){
   event.dataTransfer.setData("text/plain", grocery.name);
+  setHovered(null);
 
 }
 function dropIngredient(event){
@@ -84,8 +86,7 @@ function dropIngredient(event){
 }
 
 
-
-   return (
+return (
     <>
         <div className="groceries">
             <div className="groceries-grid">
@@ -96,11 +97,16 @@ function dropIngredient(event){
                             key={grocery.name}
                             draggable={!ingredients.includes(grocery.name)}
                             onDragStart={(event) => dragIngredient(event, grocery)}
+                            onMouseEnter={() => setHovered(grocery.name)}
+                            onMouseLeave={() => setHovered(null)}
                         >
                             {
                                 !ingredients.includes(grocery.name) &&
                                 <model-viewer
                                     src={grocery.src}
+                                    auto-rotate={hovered === grocery.name }
+                                    auto-rotate-delay="0"
+                                    rotation-per-second="45deg"
                                 ></model-viewer>
                             }
                         </div>
@@ -118,9 +124,17 @@ function dropIngredient(event){
                 groceries.filter(grocery =>
                     ingredients.includes(grocery.name)
                 ).map(grocery =>
-                    <div className="board-ingredient" key={grocery.name}>
+                    <div
+                        className="board-ingredient"
+                        key={grocery.name}
+                        onMouseEnter={() => setHovered(grocery.name)}
+                        onMouseLeave={() => setHovered(null)}
+                    >
                         <model-viewer
                             src={grocery.src}
+                            auto-rotate={hovered === grocery.name ? true : undefined}
+                            auto-rotate-delay="0"
+                            rotation-per-second="45deg"
                         ></model-viewer>
                     </div>
                 )
@@ -129,6 +143,7 @@ function dropIngredient(event){
     </>
 );
 }
+
 
 
 

@@ -4,6 +4,7 @@ import logo from "../images/judgy_logo.png";
 import closeupFridge from "../images/closeup_fridge.png";
 import insideFridge from "../images/inside_fridge.png"
 import kitchen from "../images/fridge_layout.jpg"
+import board from "../images/board.png"
 
 // let loadingImages = [logo, closeupFridge, insideFridge];
 
@@ -44,6 +45,7 @@ let groceries = [{
 
 function Diary() {
   let [scene, setScene] = useState(0);
+  let [ingredients, setIngredients] = useState([]);
   //screen timer
   useEffect(()=> {
    
@@ -68,31 +70,65 @@ function Diary() {
     if (scene==3){
       return <img className ="insideFridge" src={insideFridge} alt="inside the fridge layout drawing"/>
     }
-    return(
-      <>
-<div className="groceries">
-  <div className="groceries-grid">{
-    groceries.map(
-        grocery => <div className={
-            grocery.name
-        }>
-      <model-viewer
-        src={
-            grocery.src
-        }
-        camera-controls
-        touch-action="pan-y"
-      ></model-viewer>
-</div>
-    )
-    }
-    </div>
-    </div>
-    </>
-    );
+function dragIngredeint(event, grocery){
+  event.dataTransfer.setData("text/plain", grocery.name);
+
+}
+function dropIngredient(event){
+  event.preventDefault();
+  let name = event.dataTransfer.getData("text/plain");
+
+  if (groceries.some(grocery => grocery.name === name)&& !ingredients.includes(name)){
+    setIngredients([...ingredients, name])
   }
+}
 
 
+
+   return (
+    <>
+        <div className="groceries">
+            <div className="groceries-grid">
+                {
+                    groceries.map(grocery =>
+                        <div
+                            className={grocery.name}
+                            key={grocery.name}
+                            draggable={!ingredients.includes(grocery.name)}
+                            onDragStart={(event) => dragIngredient(event, grocery)}
+                        >
+                            {
+                                !ingredients.includes(grocery.name) &&
+                                <model-viewer
+                                    src={grocery.src}
+                                ></model-viewer>
+                            }
+                        </div>
+                    )
+                }
+            </div>
+        </div>
+
+        <div
+            className="cutting-board"
+            onDragOver={(event) => event.preventDefault()}
+            onDrop={dropIngredient}
+        >
+            {
+                groceries.filter(grocery =>
+                    ingredients.includes(grocery.name)
+                ).map(grocery =>
+                    <div className="board-ingredient" key={grocery.name}>
+                        <model-viewer
+                            src={grocery.src}
+                        ></model-viewer>
+                    </div>
+                )
+            }
+        </div>
+    </>
+);
+}
 
 
 

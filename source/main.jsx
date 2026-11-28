@@ -120,6 +120,7 @@ return (
             onDragOver={(event) => event.preventDefault()}
             onDrop={dropIngredient}
         >
+          <div className="board-grid">
             {
                 groceries.filter(grocery =>
                     ingredients.includes(grocery.name)
@@ -139,6 +140,7 @@ return (
                     </div>
                 )
             }
+        </div>
         </div>
     </>
 );

@@ -71,15 +71,35 @@ grid-template-rows: repeat(4, minmax(0,1fr));
     width: 30vw;
     height: 75vh;
     background-image: url("../images/board.png");
-    background-size: contain;
-    background-position: left;
+    background-size: 100% 100%;
+    background-position: center;
     background-repeat: no-repeat;
     display: grid;
-    grid-template-columns: repeat(2, minmax(0, 1fr));
-    grid-template-rows: repeat(4, minmax(0, 1fr));
+    /* grid-template-columns: repeat(2, 90px);
+    grid-template-rows: repeat(4, 90px);
+    gap: 0px;
+    justify-content: center;
+align-content: center; */
 }
 
 .board-ingredient{
     min-width: 0;
     min-height: 0;
+}
+.board-grid{
+    position: absolute;
+    top: 20%;
+    bottom: 20%;
+    left: 20%;
+    right: 20%;
+
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0,1fr));
+    grid-template-rows: repeat(4, minmax(0,1fr));
+    gap:0;
+}
+.board-ingredient model-viewer{
+    width: 120%;
+    height: 120%;
+    pointer-events: none;
 }
